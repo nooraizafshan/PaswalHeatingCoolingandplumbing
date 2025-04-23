@@ -1,6 +1,4 @@
-import Image from "next/image";
 import styles from "./page.module.css";
-import { HelpRounded, Reviews } from "@mui/icons-material";
 import Hero from "@/Components/Hero";
 import Herobanner from "@/Components/Herobanner";
 import Aboutus from "@/Components/Aboutus";
