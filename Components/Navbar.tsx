@@ -71,7 +71,7 @@ const Navbar = () => {
                 },
               }}
             >
-              Paswal Heating and Cooling
+              Paswal Heating Cooling & Plumbing
             </Typography>
           </Box>
 
