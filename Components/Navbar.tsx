@@ -60,7 +60,7 @@ const Navbar = () => {
               variant="h6"
               sx={{
                 fontWeight: "bold",
-                fontSize: { xs: "1rem", sm: "1.5rem", md: "1.7rem" },
+                fontSize: { xs: "1rem", sm: "1.5rem", md: "1.5rem" },
                 color: "#1976D2",
                 fontFamily: "Arial, sans-serif",
                 textShadow: "1px 1px 2px rgba(0,0,0,0.2)",

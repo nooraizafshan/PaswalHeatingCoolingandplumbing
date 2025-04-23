@@ -146,7 +146,7 @@ const Services = () => {
       details: "Comprehensive boiler services including maintenance and emergency repairs.",
     },
     {
-      image: "Underfloorhservice.jpg",
+      image: "underfloorservice.jpg",
       text: "Under Floor Heating service",
       details: [
         "Expert installation and maintenance of underfloor heating systems.",

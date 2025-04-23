@@ -100,14 +100,8 @@ const AboutUs = () => {
                   variant="body1"
                   paragraph
                 >
-                  At Ilford in England, I serve as a dedicated Gas Engineer. I
-                  specialize in maintaining, repairing, and installing gas
-                  systems with a focus on safety and efficiency. My role
-                  includes inspections, troubleshooting, and ensuring compliance
-                  with industry standards. My commitment to delivering reliable
-                  and professional services has earned me a reputation for
-                  excellence. At Liford, we exceed expectations, one satisfied
-                  customer at a time.
+                 Based in Ilford, England, we are a team of dedicated Gas Engineers specializing in the maintenance, repair, and installation of gas systems. With a strong emphasis on safety and efficiency, we provide comprehensive services, including inspections, troubleshooting, and ensuring full compliance with industry standards.
+                  Our commitment to delivering reliable and professional service has earned us a reputation for excellence.At , <Typography color="#1976D2">Paswal Heating Cooling & Plumbing</Typography> we take pride in exceeding expectations—one satisfied customer at a time.
                 </Typography>
                 <Button
                   variant="contained"
