@@ -543,7 +543,7 @@ const Review = () => {
     // Apply sort
     switch (sortOption) {
       case "newest":
-        result.sort((a, b) => b.dateObj - a.dateObj);
+        result.sort((a, b) => b.dateObj.getTime() - a.dateObj.getTime());
         break;
       case "highest-rating":
         result.sort((a, b) => b.rating - a.rating);
@@ -553,7 +553,7 @@ const Review = () => {
         break;
       case "most-relevant":
       default:
-        result.sort((a, b) => (b.rating - a.rating) || (b.dateObj - a.dateObj));
+        result.sort((a, b) => (b.rating - a.rating) || (b.dateObj.getTime() - a.dateObj.getTime()));
     }
     
     setFilteredReviews(result);
@@ -605,7 +605,7 @@ const Review = () => {
       {/* Sort Dropdown */}
       <Box sx={{ width: { xs: "90%", sm: "80%", md: "70%" }, margin: "0 auto 30px" }}>
         <FormControl fullWidth size="small" sx={{ maxWidth: 250, backgroundColor: "white", borderRadius: 1 }}>
-          <InputLabel  sx={{ mb: 2 }}>Sort by</InputLabel>
+          <InputLabel sx={{ mb: 2 }}>Sort by</InputLabel>
           <Select
             value={sortOption}
             label="Sort by"
@@ -749,7 +749,7 @@ const Review = () => {
               value={newReview.rating}
               precision={0.5}
               onChange={(event, newValue) =>
-                setNewReview({ ...newReview, rating: newValue })
+                setNewReview({ ...newReview, rating: newValue || 0 })
               }
               size="large"
             />
