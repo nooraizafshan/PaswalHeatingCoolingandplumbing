@@ -35,9 +35,9 @@ const ContactUs = () => {
           +44 7951 494052
         </Link>
 
-        <Typography variant="h6" fontWeight="bold" mt={3} color="primary">
+        {/* <Typography variant="h6" fontWeight="bold" mt={3} color="primary">
           Our Location:
-        </Typography>
+        </Typography> */}
       </Box>
 
       {/* Right Side: Embedded Google Map */}

@@ -45,38 +45,62 @@ const Navbar = () => {
       {/* Top Bar - Navbar 1 */}
       <AppBar
         position="static"
-        sx={{ backgroundColor: "#FFF", color: "black", padding: "5px 20px" }}
+        sx={{ 
+          backgroundColor: "#FFF", 
+          color: "black", 
+          padding: { xs: "5px 10px", sm: "5px 20px" } 
+        }}
       >
-        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Toolbar sx={{ 
+          display: "flex", 
+          justifyContent: "space-between",
+          padding: { xs: "0 !important", sm: "inherit" }
+        }}>
           {/* Left Side: Logo and Brand */}
-          <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+          <Box sx={{ 
+            display: "flex", 
+            alignItems: "center", 
+            gap: { xs: 1, sm: 2 },
+            flexGrow: isMobile ? 1 : 0
+          }}>
             <Image
               src="/Logo-removebg-preview.png"
               alt="Logo"
-              width={140}
-              height={135}
-            />
-            <Typography
-              variant="h6"
-              sx={{
-                fontWeight: "bold",
-                fontSize: { xs: "1rem", sm: "1.5rem", md: "1.5rem" },
-                color: "#1976D2",
-                fontFamily: "Arial, sans-serif",
-                textShadow: "1px 1px 2px rgba(0,0,0,0.2)",
-                transition: "all 0.3s ease-in-out",
-                "&:hover": {
-                  color: "#0D47A1",
-                  transform: "scale(1.02)",
-                },
+              width={isMobile ? 100 : 140}
+              height={isMobile ? 100 : 135}
+              style={{
+                objectFit: "contain",
+                minWidth: isMobile ? 80 : 120
               }}
-            >
-              Paswal Heating Cooling & Plumbing
-            </Typography>
+            />
+            {!isMobile && (
+              <Typography
+                variant="h6"
+                sx={{
+                  fontWeight: "bold",
+                  fontSize: { xs: "1rem", sm: "1.5rem" },
+                  color: "#1976D2",
+                  fontFamily: "Arial, sans-serif",
+                  textShadow: "1px 1px 2px rgba(0,0,0,0.2)",
+                  transition: "all 0.3s ease-in-out",
+                  "&:hover": {
+                    color: "#0D47A1",
+                    transform: "scale(1.02)",
+                  },
+                }}
+              >
+                Paswal Heating Cooling & Plumbing
+              </Typography>
+            )}
           </Box>
 
           {/* Right Side: Contact Info */}
-          <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+          <Box sx={{ 
+            display: "flex", 
+            alignItems: "center", 
+            gap: { xs: 1, sm: 2 },
+            flexShrink: 0
+          }}>
             {!isMobile && (
               <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                 Call us today to find out how we can help you!
@@ -88,7 +112,8 @@ const Navbar = () => {
                 backgroundColor: "#FFC107",
                 color: "black",
                 fontSize: isMobile ? "0.75rem" : "1rem",
-                padding: isMobile ? "5px 10px" : "8px 16px",
+                padding: isMobile ? "5px 8px" : "8px 16px",
+                minWidth: isMobile ? "fit-content" : "inherit",
                 "&:hover": { backgroundColor: "#FFA000" },
               }}
               startIcon={<Phone fontSize={isMobile ? "small" : "medium"} />}
@@ -109,6 +134,7 @@ const Navbar = () => {
             display: "flex",
             justifyContent: isMobile ? "space-between" : "center",
             gap: 2,
+            padding: { xs: "0 10px !important", sm: "inherit" }
           }}
         >
           {isMobile ? (
@@ -118,29 +144,54 @@ const Navbar = () => {
                 color="inherit"
                 aria-label="menu"
                 onClick={() => setDrawerOpen(true)}
+                sx={{ mr: 0 }}
               >
                 <MenuIcon />
               </IconButton>
+
+              <Typography
+                variant="h6"
+                noWrap
+                sx={{
+                  fontWeight: "bold",
+                  fontSize: "0.9rem",
+                  color: "white",
+                  fontFamily: "Arial, sans-serif",
+                  textShadow: "1px 1px 2px rgba(0,0,0,0.2)",
+                  border: "1px solid white",
+                  borderRadius: "4px",
+                  padding: "4px 8px",
+                  textAlign: "right",
+                  flexGrow: 1,
+                  textOverflow: "ellipsis",
+                  overflow: "hidden",
+                  maxWidth: "70%"
+                }}
+              >
+                Paswal Heating Cooling & Plumbing
+              </Typography>
 
               <Drawer
                 anchor="left"
                 open={drawerOpen}
                 onClose={() => setDrawerOpen(false)}
               >
-                <List>
-                  {menuItems.map((item) => (
-                    <ListItem key={item.id} disablePadding>
-                      <ListItemButton
-                        onClick={() => {
-                          scrollToSection(item.id);
-                          setDrawerOpen(false);
-                        }}
-                      >
-                        <ListItemText primary={item.name} />
-                      </ListItemButton>
-                    </ListItem>
-                  ))}
-                </List>
+                <Box sx={{ width: 250 }}>
+                  <List>
+                    {menuItems.map((item) => (
+                      <ListItem key={item.id} disablePadding>
+                        <ListItemButton
+                          onClick={() => {
+                            scrollToSection(item.id);
+                            setDrawerOpen(false);
+                          }}
+                        >
+                          <ListItemText primary={item.name} />
+                        </ListItemButton>
+                      </ListItem>
+                    ))}
+                  </List>
+                </Box>
               </Drawer>
             </>
           ) : (

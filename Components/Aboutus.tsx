@@ -100,7 +100,7 @@ const AboutUs = () => {
                   variant="body1"
                   paragraph
                 >
-                 Based in Ilford, England, we are a team of dedicated Gas Engineers specializing in the maintenance, repair, and installation of gas systems. With a strong emphasis on safety and efficiency, we provide comprehensive services, including inspections, troubleshooting, and ensuring full compliance with industry standards.
+                 Based in East London, we are a team of dedicated Gas Engineers specializing in the maintenance, repair, and installation of gas systems. With a strong emphasis on safety and efficiency, we provide comprehensive services, including inspections, troubleshooting, and ensuring full compliance with industry standards.
                   Our commitment to delivering reliable and professional service has earned us a reputation for excellence.At , <Typography color="#1976D2">Paswal Heating Cooling & Plumbing</Typography> we take pride in exceeding expectations—one satisfied customer at a time.
                 </Typography>
                 <Button
