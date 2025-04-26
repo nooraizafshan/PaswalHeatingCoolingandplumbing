@@ -32,7 +32,8 @@ const Hero = () => {
                 fontWeight: "bold",
               }}
             >
-              Safer Homes start with ACF :
+
+Say goodbye to leaks, cold nights, and hot rooms!
             </Typography>
             <Typography
               sx={{
@@ -40,8 +41,8 @@ const Hero = () => {
                 marginBottom: 2,
               }}
             >
-              Safer Homes start with ACF: Covering Northamptonshire and
-              Leicestershire, you can rest assured that you are in safe hands.
+              Professional plumbing, heating, and cooling solutions you can trust.
+              We deliver expert care to keep your home running smoothly all year round.
             </Typography>
 
             <Button
