@@ -7,6 +7,7 @@ import Quality from "@/Components/Quality";
 import Review from "@/Components/Review";
 import ContactUs from "@/Components/Contact";
 import Footer from "@/Components/Footer";
+import RatingBanner from "@/Components/RatingBanner";
 
 export default function Home() {
   return (
@@ -19,15 +20,17 @@ export default function Home() {
       <section id="about">
         <Aboutus/>
       </section>
-
       <section id="services">
         <Services/>
       </section>
       <Quality/>
 
+      {/* <RatingBanner/> */}
+
       <section id="reviews">
       <Review/>
       </section>
+
 
       <section id="contact">
         <ContactUs/>
