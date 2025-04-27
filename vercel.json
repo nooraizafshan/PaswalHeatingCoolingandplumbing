@@ -1,0 +1,6 @@
+{
+    "redirects": [
+      { "source": "/(.*)", "destination": "/under-construction.html", "permanent": false }
+    ]
+  }
+  
