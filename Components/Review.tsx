@@ -81,7 +81,7 @@ const reviews = [
     text: "Javed is such a professional. He is extremely knowledgeable, honest and trustworthy. He installed a new heating system for our house 11 years ago which is still going strong. He's always responded to calls and sorts out our boiler and heating issues in a timely manner. My wife and I absolutely recommend his services.",
     rating: 5,
     date: "2 years ago",
-    reviewCount: 1,
+    reviewCount:5,
     serviceType: "system",
     dateObj: new Date(Date.now() - 63072e6), // 2 years ago
   },
@@ -693,7 +693,6 @@ const Review = () => {
           Write a Review
         </Button>
       </Box>
-
       {/* Modal for New Review */}
       <Modal
         open={openModal}
