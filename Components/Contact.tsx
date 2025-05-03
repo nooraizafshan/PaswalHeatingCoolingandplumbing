@@ -42,15 +42,7 @@ const ContactUs = () => {
 
       {/* Right Side: Embedded Google Map */}
       <Box sx={{ flex: 1, textAlign: "left", mt: { xs: 4, md: 0 }, pl: { md: 5 } }}>
-        <iframe
-          title="Google Map Location"
-          width="100%"
-          height="320"
-          style={{ border: "0", borderRadius: "10px", boxShadow: "0px 4px 10px rgba(0,0,0,0.1)" }}
-          loading="lazy"
-          allowFullScreen
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2481.204751814465!2d0.06940527483715904!3d51.54614440787451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a75475f48e11%3A0x69e6074cbd12e11b!2sPaswal!5e0!3m2!1sen!2s!4v1742059879851!5m2!1sen!2s"
-        ></iframe>
+       
       </Box>
     </Box>
   );

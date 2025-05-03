@@ -33,7 +33,6 @@ const Hero = () => {
               }}
             >
 
-Say goodbye to leaks, cold nights, and hot rooms!
             </Typography>
             <Typography
               sx={{
