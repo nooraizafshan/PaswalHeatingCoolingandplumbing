@@ -8,17 +8,10 @@ import {
   useTheme,
   useMediaQuery,
   Rating,
-  Button,
-  Modal,
-  TextField,
   Chip,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
 } from "@mui/material";
 import Slider from "react-slick";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -486,26 +479,9 @@ const Review = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
 
-  const [openModal, setOpenModal] = useState(false);
-  const [newReview, setNewReview] = useState({
-    name: "",
-    rating: 0,
-    text: "",
-    serviceType: "",
-  });
-  const [sortOption, setSortOption] = useState("most-relevant");
-  const [serviceFilter, setServiceFilter] = useState("all");
-  const [filteredReviews, setFilteredReviews] = useState(reviews);
-
-  const handleOpenModal = () => setOpenModal(true);
-  const handleCloseModal = () => {
-    setOpenModal(false);
-    setNewReview({ name: "", rating: 0, text: "", serviceType: "" });
-  };
-
   const settings = {
     dots: true,
-    infinite: filteredReviews.length > 1,
+    infinite: reviews.length > 1,
     speed: 500,
     slidesToShow: isMobile ? 1 : isTablet ? 1 : 2,
     slidesToScroll: 1,
@@ -521,42 +497,6 @@ const Review = () => {
   // Calculate average rating and total reviews
   const averageRating = 5.0;
   const totalReviews = reviews.length;
-
-  const serviceTypes = [
-    { value: "all", label: "All" },
-    { value: "boiler", label: "Boiler" },
-    { value: "plumbing", label: "Plumbing" },
-    { value: "gentleman", label: "Gentleman" },
-    { value: "system", label: "System" },
-  ];
-
-  // Update filtered reviews when sort or filter changes
-  useEffect(() => {
-    let result = [...reviews];
-    
-    // Apply service filter
-    if (serviceFilter !== "all") {
-      result = result.filter(review => review.serviceType === serviceFilter);
-    }
-    
-    // Apply sort
-    switch (sortOption) {
-      case "newest":
-        result.sort((a, b) => b.dateObj.getTime() - a.dateObj.getTime());
-        break;
-      case "highest-rating":
-        result.sort((a, b) => b.rating - a.rating);
-        break;
-      case "lowest-rating":
-        result.sort((a, b) => a.rating - b.rating);
-        break;
-      case "most-relevant":
-      default:
-        result.sort((a, b) => (b.rating - a.rating) || (b.dateObj.getTime() - a.dateObj.getTime()));
-    }
-    
-    setFilteredReviews(result);
-  }, [sortOption, serviceFilter]);
 
   return (
     <Box sx={{ backgroundColor: "#005A9C", py: 6, textAlign: "center" }}>
@@ -581,206 +521,63 @@ const Review = () => {
         </Typography>
       </Box>
 
-      {/* Service Filter Chips */}
-      <Box sx={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 1, mb: 4 }}>
-        {serviceTypes.map((service) => (
-          <Chip
-            key={service.value}
-            label={service.label}
-            onClick={() => setServiceFilter(service.value)}
-            variant={serviceFilter === service.value ? "filled" : "outlined"}
-            sx={{
-              color: serviceFilter === service.value ? "#005A9C" : "white",
-              backgroundColor: serviceFilter === service.value ? "white" : "transparent",
-              borderColor: "white",
-              '&:hover': {
-                backgroundColor: serviceFilter === service.value ? "white" : "rgba(255, 255, 255, 0.1)",
-              },
-            }}
-          />
-        ))}
-      </Box>
-
-      {/* Sort Dropdown */}
-      <Box sx={{ width: { xs: "90%", sm: "80%", md: "70%" }, margin: "0 auto 30px" }}>
-        <FormControl fullWidth size="small" sx={{ maxWidth: 250, backgroundColor: "white", borderRadius: 1 }}>
-          <InputLabel sx={{ mb: 2 }}>Sort by</InputLabel>
-          <Select
-            value={sortOption}
-            label="Sort by"
-            onChange={(e) => setSortOption(e.target.value)}
-          >
-            <MenuItem value="most-relevant">Most relevant</MenuItem>
-            <MenuItem value="newest">Newest</MenuItem>
-            <MenuItem value="highest-rating">Highest rating</MenuItem>
-            <MenuItem value="lowest-rating">Lowest rating</MenuItem>
-          </Select>
-        </FormControl>
-      </Box>
-
-      {/* Review Cards Slider - Always shown as slider regardless of sorting */}
+      {/* Review Cards Slider */}
       <Box sx={{ width: { xs: "90%", sm: "80%", md: "70%" }, margin: "auto" }}>
-        {filteredReviews.length > 0 ? (
-          <Slider {...settings}>
-            {filteredReviews.map((review, index) => (
-              <Box key={index} sx={{ px: 1 }}>
-                <Card
-                  sx={{
-                    maxWidth: 350,
-                    mx: "auto",
-                    p: 3,
-                    textAlign: "center",
-                    borderRadius: 2,
-                    backgroundColor: "white",
-                    height: "100%",
-                  }}
-                >
-                  <Avatar
-                    src={review.image}
-                    alt={review.name}
-                    sx={{ width: 80, height: 80, margin: "auto", mb: 2 }}
-                  />
-                  <CardContent>
-                    <Typography variant="h6" fontWeight="bold">
-                      {review.name}
-                    </Typography>
-                    <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 1, mb: 1 }}>
-                      <Rating value={review.rating} precision={0.5} readOnly />
-                      <Chip
-                        label={review.serviceType}
-                        size="small"
-                        sx={{ textTransform: "capitalize", backgroundColor: "#e3f2fd" }}
-                      />
-                    </Box>
-                    <Typography
-                      variant="body2"
-                      color="text.secondary"
-                      sx={{ fontStyle: "italic", mb: 1 }}
-                    >
-                      {review.date} {review.isNew && (
-                        <Chip label="NEW" size="small" sx={{ ml: 1, backgroundColor: "#e3f2fd" }} />
-                      )}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {review.text}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Box>
-            ))}
-          </Slider>
-        ) : (
-          <Typography variant="body1" color="white">
-            No reviews found for this service type.
-          </Typography>
-        )}
-
-        {/* Write a Review Button */}
-        <Button
-          variant="contained"
-          onClick={handleOpenModal}
-          sx={{
-            mt: 4,
-            backgroundColor: "#FFC107",
-            color: "#000",
-            '&:hover': { backgroundColor: "#FFA000" },
-            px: 4,
-            py: 1.5,
-            fontSize: "1rem",
-            fontWeight: "bold",
-          }}
-        >
-          Write a Review
-        </Button>
-      </Box>
-      {/* Modal for New Review */}
-      <Modal
-        open={openModal}
-        onClose={handleCloseModal}
-        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
-      >
-        <Box
-          sx={{
-            backgroundColor: "white",
-            padding: 4,
-            borderRadius: 2,
-            maxWidth: "90%",
-            width: 500,
-          }}
-        >
-          <Typography variant="h6" fontWeight="bold" mb={2}>
-            Write a Review
-          </Typography>
-          <TextField
-            fullWidth
-            label="Your Name"
-            variant="outlined"
-            margin="normal"
-            value={newReview.name}
-            onChange={(e) => setNewReview({ ...newReview, name: e.target.value })}
-          />
-          <Box sx={{ my: 2 }}>
-            <Typography variant="body1" mb={1}>
-              Service Type
-            </Typography>
-            <FormControl fullWidth>
-              <InputLabel>Select Service</InputLabel>
-              <Select
-                value={newReview.serviceType}
-                label="Select Service"
-                onChange={(e) => setNewReview({ ...newReview, serviceType: e.target.value })}
+        <Slider {...settings}>
+          {reviews.map((review, index) => (
+            <Box key={index} sx={{ px: 1 }}>
+              <Card
+                sx={{
+                  maxWidth: 350,
+                  mx: "auto",
+                  p: 3,
+                  textAlign: "center",
+                  borderRadius: 2,
+                  backgroundColor: "white",
+                  height: "100%",
+                }}
               >
-                {serviceTypes.filter(s => s.value !== "all").map((service) => (
-                  <MenuItem key={service.value} value={service.value}>
-                    {service.label}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-          </Box>
-          <Box sx={{ my: 2 }}>
-            <Typography variant="body1" mb={1}>
-              Your Rating
-            </Typography>
-            <Rating
-              name="user-rating"
-              value={newReview.rating}
-              precision={0.5}
-              onChange={(event, newValue) =>
-                setNewReview({ ...newReview, rating: newValue || 0 })
-              }
-              size="large"
-            />
-          </Box>
-          <TextField
-            fullWidth
-            multiline
-            rows={4}
-            label="Your Review"
-            variant="outlined"
-            margin="normal"
-            value={newReview.text}
-            onChange={(e) => setNewReview({ ...newReview, text: e.target.value })}
-          />
-          <Box sx={{ display: "flex", justifyContent: "flex-end", gap: 2, mt: 3 }}>
-            <Button variant="outlined" onClick={handleCloseModal}>
-              Cancel
-            </Button>
-            <Button
-              variant="contained"
-              onClick={() => {
-                // Handle review submission here
-                handleCloseModal();
-              }}
-              sx={{ backgroundColor: "#FFC107", color: "#000" }}
-            >
-              Submit Review
-            </Button>
-          </Box>
-        </Box>
-      </Modal>
+                <Avatar
+                  src={review.image}
+                  alt={review.name}
+                  sx={{ width: 80, height: 80, margin: "auto", mb: 2 }}
+                />
+                <CardContent>
+                  <Typography variant="h6" fontWeight="bold">
+                    {review.name}
+                  </Typography>
+                  <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 1, mb: 1 }}>
+                    <Rating value={review.rating} precision={0.5} readOnly />
+                    <Chip
+                      label={review.serviceType}
+                      size="small"
+                      sx={{ textTransform: "capitalize", backgroundColor: "#e3f2fd" }}
+                    />
+                  </Box>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ fontStyle: "italic", mb: 1 }}
+                  >
+                    {review.date} {review.isNew && (
+                      <Chip label="NEW" size="small" sx={{ ml: 1, backgroundColor: "#e3f2fd" }} />
+                    )}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {review.text}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Box>
+          ))}
+        </Slider>
+      </Box>
     </Box>
   );
 };
 
 export default Review;
+
+
+
+

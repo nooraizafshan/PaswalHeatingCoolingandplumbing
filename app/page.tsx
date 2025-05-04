@@ -5,7 +5,6 @@ import Aboutus from "@/Components/Aboutus";
 import Services from "@/Components/Services";
 import Quality from "@/Components/Quality";
 import Review from "@/Components/Review";
-import ContactUs from "@/Components/Contact";
 import Footer from "@/Components/Footer";
 
 export default function Home() {
@@ -30,9 +29,6 @@ export default function Home() {
       </section>
 
 
-      <section id="contact">
-        <ContactUs/>
-      </section>
       <Footer/>
     </div>
  
