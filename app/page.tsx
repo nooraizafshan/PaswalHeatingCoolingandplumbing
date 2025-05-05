@@ -6,6 +6,7 @@ import Services from "@/Components/Services";
 import Quality from "@/Components/Quality";
 import Review from "@/Components/Review";
 import Footer from "@/Components/Footer";
+import BrandMarquee from "@/Components/Marquee";
 
 export default function Home() {
   return (
@@ -27,7 +28,7 @@ export default function Home() {
       <section id="reviews">
       <Review/>
       </section>
-
+      <BrandMarquee/>
 
       <Footer/>
     </div>

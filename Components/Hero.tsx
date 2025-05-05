@@ -53,7 +53,7 @@ const Hero = () => {
                 "&:hover": { backgroundColor: "#1565C0" },
               }}
             >
-              Build Your Boiler →
+              Get A Qoute →
             </Button>
           </Grid>
 
