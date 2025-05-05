@@ -63,7 +63,7 @@ const Navbar = () => {
             flexGrow: isMobile ? 1 : 0
           }}>
             <Image
-              src="/Logo-removebg-preview.png"
+              src="/Logo.jpg"
               alt="Logo"
               width={isMobile ? 100 : 140}
               height={isMobile ? 100 : 135}
