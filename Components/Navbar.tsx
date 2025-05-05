@@ -65,8 +65,8 @@ const Navbar = () => {
             <Image
               src="/Logo.jpg"
               alt="Logo"
-              width={isMobile ? 100 : 140}
-              height={isMobile ? 100 : 135}
+              width={isMobile ? 100 : 150}
+              height={isMobile ? 100 : 155}
               style={{
                 objectFit: "contain",
                 minWidth: isMobile ? 80 : 120
