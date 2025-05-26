@@ -145,6 +145,16 @@ const Services = () => {
       text: "Maintenance, Breakdown & Boiler Repair Services",
       details: "Comprehensive boiler services including maintenance and emergency repairs.",
     },
+    //  {
+    //   image: "s4.jpeg",
+    //   text: "Air Source Heat Pump",
+    //   details: "Efficient air source heat pump installation and servicing.",
+    // },
+    //  {
+    //   image: "s4.jpeg",
+    //   text: "New boiler installation",
+    //   details: "",
+    // },
     {
       image: "underfloorservice.jpg",
       text: "Under Floor Heating service",
@@ -157,11 +167,7 @@ const Services = () => {
   ];
 
   const coolingServices: Service[] = [
-    {
-      image: "s4.jpeg",
-      text: "Air Source Heat Pump",
-      details: "Efficient air source heat pump installation and servicing.",
-    },
+   
     {
       image: "air conditioning.jpeg",
       text: "Air Conditioning HVAC Installation",

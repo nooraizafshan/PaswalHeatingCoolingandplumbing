@@ -1,10 +1,10 @@
 import { Box, Typography } from "@mui/material";
 
 const trustedBrands = [
-  { name: "", logo: "/environement.png" },
-  { name: "", logo: "/yell.png" },
-  { name: "", logo: "/m.png" },
-  { name: "", logo: "/trade.png" },
+  { name: "", logo: "/fgas.jpeg" },
+  // { name: "", logo: "/yell.png" },
+  // { name: "", logo: "/m.png" },
+  // { name: "", logo: "/trade.png" },
   { name: "", logo: "/gas.png" },
 ];
 
