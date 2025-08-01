@@ -101,8 +101,8 @@ const AboutUs = () => {
                   paragraph
                 >
 <Typography variant="h6">
-   <span style={{ color: "#1976D2" }}></span>, We specialize in  installation, maintenance, repair, and Service, of gas appliances, and  Air conditioning heeting cooling systems, and plumbing solutions <br/>
-  <span style={{ color: "#1976D2" }}></span> We are committed to delivering safe, efficient, and fully compliant solutions with a focus on customer satisfaction and long-term reliability.
+    We specialize in  installation, maintenance, repair, and Service, of gas appliances, and  Air conditioning heeting cooling systems, and plumbing solutions <br/>
+   We are committed to delivering safe, efficient, and fully compliant solutions with a focus on customer satisfaction and long-term reliability.
 
 Your comfort and safety is our priority — We  deliver results 
 
