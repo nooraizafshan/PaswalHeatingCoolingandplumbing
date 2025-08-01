@@ -40,7 +40,7 @@ const Hero = () => {
                 marginBottom: 2,
               }}
             >
-              Professional  heating,  cooling and  plumbing   installation  maintainenance and service 
+              Professional  heating,  cooling and  plumbing   installation  maintenance and service 
               We deliver expert care to keep your home running smoothly in winter and summer
             </Typography>
 
