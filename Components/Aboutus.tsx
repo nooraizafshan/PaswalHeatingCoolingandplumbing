@@ -101,10 +101,10 @@ const AboutUs = () => {
                   paragraph
                 >
 <Typography variant="h6">
-  At <span style={{ color: "#1976D2" }}>Paswal Heating Cooling & Plumbing</span>, I specialize in the maintenance, repair, and installation of gas, heating, cooling, and plumbing systems. <br/>
+  At <span style={{ color: "#1976D2" }}>Paswal Heating Cooling & Plumbing</span>, I specialize in the maintenance, repair, and installation of gas, heating, cooling, and plumbing solutions <br/>
   <span style={{ color: "#1976D2" }}>In Ilford in England,</span> We are committed to delivering safe, efficient, and fully compliant solutions with a focus on customer satisfaction and long-term reliability.
 
-Your comfort and safety is our priority — We  deliver results you can trust.
+Your comfort and safety is our priority — We  deliver results 
 
 </Typography>
                 </Typography>

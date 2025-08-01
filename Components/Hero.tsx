@@ -40,8 +40,8 @@ const Hero = () => {
                 marginBottom: 2,
               }}
             >
-              Professional plumbing, heating, and cooling solutions you can trust.
-              We deliver expert care to keep your home running smoothly all year round.
+              Professional  heating,  cooling and  plumbing   installation  maintainenance and service 
+              We deliver expert care to keep your home running smoothly in winter and summer
             </Typography>
 
             <Button
