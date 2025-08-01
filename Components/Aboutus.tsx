@@ -101,7 +101,7 @@ const AboutUs = () => {
                   paragraph
                 >
 <Typography variant="h6">
-    We specialize in  installation, maintenance, repair, and Service, of gas appliances, and  Air conditioning heeting cooling systems, and plumbing solutions <br/>
+    We specialize in  installation, maintenance, repair, and Service, of gas appliances, and  Air conditioning heating cooling systems, and plumbing solutions <br/>
    We are committed to delivering safe, efficient, and fully compliant solutions with a focus on customer satisfaction and long-term reliability.
 Your comfort and safety is our priority — We  deliver results 
 
